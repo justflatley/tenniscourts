@@ -14,7 +14,11 @@ async function populate() {
 function populateHeader(obj) {
     const header = document.querySelector('header');
     const myH1 = document.createElement('h1');
-    myH1.textContent = obj.title  ;
+    myH1.textContent = obj.title ;
+
+    const para = document.createElement('p');
+    para.textContent = 'Last Modified: ' + obj.last_updated;
+    myH1.appendChild(para);
     header.appendChild(myH1);
 }
 
@@ -39,7 +43,6 @@ function populateCourtTimes(obj) {
             section.appendChild(h3);
             for (i = 0; i < court.times.length; i++) {
                 const para = document.createElement('p');
-                console.log(court.times[i]);
                 para.textContent = court.times[i];
                 section.appendChild(para);
             }
